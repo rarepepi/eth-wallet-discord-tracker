@@ -11,7 +11,7 @@ export class AppController {
   }
 
   @Get('/run')
-  runTask(): string {
+  runTask(): Promise<string> {
     return this.appService.run();
   }
 }
