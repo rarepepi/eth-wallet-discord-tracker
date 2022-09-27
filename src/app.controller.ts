@@ -5,9 +5,13 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  statusDto = {
+    status: AppService.running ? 'Running' : 'Not Running',
+    walletAddress: process.env.WALLET_ADDRESS,
+  };
   @Get()
   root(): string {
-    return `Contract Transaction checking: ${process.env.WALLET_ADDRESS}!`;
+    return JSON.stringify(this.statusDto);
   }
 
   @Get('/run')
