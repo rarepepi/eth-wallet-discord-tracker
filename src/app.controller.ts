@@ -7,7 +7,7 @@ export class AppController {
 
   @Get()
   root(): string {
-    return 'Ur not supposed to be here!';
+    return `Contract Transaction checking: ${process.env.WALLET_ADDRESS}!`;
   }
 
   @Get('/run')
